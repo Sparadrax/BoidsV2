@@ -1,0 +1,26 @@
+/* 3D flocking simulation. Each boid combines separation, alignment, and cohesion; instanced meshes draw the flock efficiently.
+ * Page-specific layout and controls; shared theme colors are supplied by /Theme.css.
+ */
+html, body { margin: 0; height: 100%; background: #080f1d; }
+body { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+#nav-placeholder { flex: 0 0 auto; position: sticky; top: 0; z-index: 1030; background: #fff; }
+#boids-view { position: relative; flex: 1 1 0; min-height: 0; overflow: hidden; color: #e8f4ff; font-family: system-ui, sans-serif; }
+#boids-view canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+#boids-controls { position: absolute; top: 22px; left: 22px; width: 250px; padding: 22px; border: 1px solid #284154; border-radius: 12px; background: #0d192be8; backdrop-filter: blur(12px); }
+#boids-controls h1 { margin: 0 0 6px; font-size: 28px; font-weight: 600; }
+#boids-controls h1 span { font-size: 13px; color: #64e4d5; vertical-align: top; }
+#boids-controls p, #boids-controls small, #boids-controls a { font-size: 12px; color: #a3bbce; }
+#boids-controls label { display: grid; grid-template-columns: 1fr auto; margin: 15px 0; font-size: 13px; }
+#boids-controls output { color: #64e4d5; }
+#boids-controls input { grid-column: 1 / -1; width: 100%; margin-top: 8px; accent-color: #64e4d5; }
+.boids-actions { display: flex; gap: 8px; margin: 20px 0 14px; }
+.boids-actions button { flex: 1; padding: 8px; color: #e8f4ff; background: #1e374a; border: 1px solid #36556b; border-radius: 6px; cursor: pointer; }
+.boids-actions button:hover { background: #2a4e62; }
+#boids-controls small, #boids-controls a { display: block; margin-top: 8px; }
+.boids-error { position: absolute; bottom: 20px; padding: 20px; }
+/* Stack or resize the project layout on narrower screens. */
+@media (max-width: 600px) {
+  #boids-controls { top: 10px; left: 10px; width: 190px; padding: 12px; }
+  #boids-controls label { margin: 8px 0; }
+  #boids-controls h1 { font-size: 22px; }
+}
